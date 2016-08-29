@@ -1,21 +1,26 @@
-package org.raj.basic;
+package org.raj.sort.impl;
+
+import org.raj.SortTester;
+import org.raj.sort.Sort;
 
 /**
  * Created by RJK on 8/10/2016.
  */
-public class SelectionSort {
+public class SelectionSort implements Sort{
     public int[] sort(int[] numbers) {
-        int min = numbers[0], index = 0, a = 1;
+        //SortTester.printArray(numbers);
+       int a = 1;
         while (a < numbers.length) {
+            int min = numbers[a-1], index = 0;
             for (int i = a; i < numbers.length; i++) {
-                if (numbers[i] < min) {
+                if (numbers[i] <= min) {
                     min = numbers[i];
                     index = i;
                 }
             }
             if (index != 0) {
-                numbers[index] = numbers[a];
-                numbers[a] = min;
+                numbers[index] = numbers[a-1];
+                numbers[a-1] = min;
             }
             a++;
         }
