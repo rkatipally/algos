@@ -4,6 +4,10 @@ package org.raj.sort.impl;
  * Created by RJK on 8/11/2016.
  */
 public class MergeSort {
+
+    public static void printMe(){
+        System.out.println("Class print me");
+    }
     public void mergeSort(int[] in, int p, int r) {
         if (p < r) {
             int q = (p + r) / 2;

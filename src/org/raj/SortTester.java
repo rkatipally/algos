@@ -13,7 +13,6 @@ public class SortTester {
         sortTester.insertionSorter(before.clone());
         sortTester.selectionSorter(before.clone());
 
-
     }
 
     public void insertionSorter(int[] before){
