@@ -1,4 +1,4 @@
-package org.raj.strings;
+package org.raj.core.strings;
 
 /**
  * Created by rjk on 10/24/2016.
@@ -12,5 +12,9 @@ public class StringTester {
             //String str2 =  str;
             //str2 = "xyz";
             System.out.println(str1==str2);
+            System.out.println(str.hashCode());
+            System.out.println(str1.hashCode());
+
+
         }
 }

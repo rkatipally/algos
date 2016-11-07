@@ -1,4 +1,4 @@
-package org.raj.strings;
+package org.raj.core.strings;
 
 /**
  * Created by rjk on 10/25/2016.

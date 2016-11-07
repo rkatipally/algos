@@ -1,6 +1,4 @@
-package org.raj.threads;
-
-import jdk.nashorn.internal.codegen.CompilerConstants;
+package org.raj.core.threads;
 
 import java.util.Arrays;
 import java.util.List;

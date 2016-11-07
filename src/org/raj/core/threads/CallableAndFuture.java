@@ -1,4 +1,4 @@
-package org.raj.threads;
+package org.raj.core.threads;
 
 import java.util.concurrent.*;
 
