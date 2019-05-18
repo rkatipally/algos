@@ -19,8 +19,10 @@ public class GroupByTester {
         //criteria.add(new Criteria("OW", "", "A,B,C,D", ""));
 //		criteria.add(new Criteria("RT", "", "A,B,C,D", ""));
 //		criteria.add(new Criteria("OW", "", "A,B,C", ""));
-        criteria.add(new Criteria("OW", "FC1", "A,B,C", "FN2"));
+        criteria.add(new Criteria("OW", "FC3", "A,B,C", "FN2"));
         criteria.add(new Criteria("OW", "FC1", "A,B,D", "FN2"));
+        criteria.add(new Criteria("OW", "FC1", "A,B,D", "FN3"));
+        criteria.add(new Criteria("OW", "FC1", "A,B,D", "FN4"));
         criteria.add(new Criteria("OW", "FC3", "A,B,C", ""));
         criteria.add(new Criteria("OW", "FC4", "A,B,D", ""));
         criteria.add(new Criteria("OW", "", "A,B,C", "FN3"));
@@ -49,7 +51,7 @@ public class GroupByTester {
         Map<String, List<Criteria>> groupedCriteriaByCabinAndTripType = criteriaList.stream()
                 .collect(groupingBy(cr -> cr.getTripType() + cr.getCabins()));
 
-        System.out.println(groupedCriteriaByCabinAndTripType);
+        //System.out.println(groupedCriteriaByCabinAndTripType);
 
         Set<Criteria> criteriaList1 = groupedCriteriaByCabinAndTripType.values()
                 .stream()
@@ -61,13 +63,19 @@ public class GroupByTester {
                     List<Criteria> noFNList = footNoteSplit.get(true);
                     if (noFCList.size() > 0) {
                         finalList.add(parseFootNote(noFCList));
-                    } else if(noFNList.size()>0){
-                        finalList.add(parseFareClass(noFCList));
                     }
                     else {
                         List<Criteria> fcList = fareClassSplit.get(false);
                         finalList.add(parseFareClass(fcList));
                         finalList.add(parseFootNote(fcList));
+                    }
+                    if(noFNList.size()>0){
+                        finalList.add(parseFareClass(noFNList));
+                    }
+                    else {
+                        List<Criteria> fnList = footNoteSplit.get(false);
+                        finalList.add(parseFareClass(fnList));
+                        finalList.add(parseFootNote(fnList));
                     }
                     return finalList;
                 }).flatMap(Collection::stream).collect(toSet());
